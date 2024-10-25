@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-attachment: fixed;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(rgba(22, 29, 39, .85), rgba(22, 29, 39, .75)), url(https://imc-blish-design-assets.s3.eu-central-1.amazonaws.com/logon-background-v2.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 38px;
+  margin: .67em 0
+}
+
+h1,h2 {
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 0
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: .75em 0
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 30px;
+  margin: .83em 0
+}
+
+h3,h4 {
+  align-items: center;
+  color: #fff;
+  letter-spacing: 0
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 1.12em 0
+}
+
+h5 {
+  font-size: 17px;
+  line-height: 24px;
+  margin: 1.5em 0
+}
+
+h5,h6 {
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 1.67em 0
+}
+
+p {
+  margin: 4px 0 16px
+}
+li > p {
+  margin: 4px 0 8px
+}
+
+li ,p {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 24px
+}
+
+.release ol,.release ul {
+  line-height: 1.5;
+  margin: 8px;
+  padding-left: 16px
+}
+
+.release li {
+  list-style: disc;
+}
+
+.release h2:after {
+  background-color: #e9393e;
+  content: "";
+  display: block;
+  height: 3px;
+  margin-left: 0;
+  margin-top: 8px;
+  position: absolute;
+  width: 30px;
+}

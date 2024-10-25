@@ -8,9 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "logo-white":
+          "url('https://imcgmbh.s3.eu-central-1.amazonaws.com/logo-imc-standard-white.svg')",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        foreground: "#364f73",
       },
     },
   },

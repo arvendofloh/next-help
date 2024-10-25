@@ -7,7 +7,9 @@ async function getPage(slug: string) {
   return directus.request(readItems("pages", { filter: { slug } }));
 }
 
-const DynamicPage = async ({ params }: { params: { slug: string } }) => {
+type Params = Promise<{ slug: string }>;
+
+const DynamicPage = async ({ params }: { params: Params }) => {
   const { slug } = await params;
   const page = await getPage(slug);
 

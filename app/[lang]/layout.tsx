@@ -15,12 +15,14 @@ const getMeta = async () => {
 
 export const metadata = await getMeta();
 
+type Params = Promise<{ lang: string }>;
+
 const RootLayout = async ({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Params;
 }) => {
   const { lang } = await params;
   return (

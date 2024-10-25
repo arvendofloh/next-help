@@ -4,6 +4,8 @@ import PaddingContainer from "@/components/layout/padding-container";
 import { Tutorial } from "@/types";
 import TutorialCard from "@/components/tutorial/tutorialcard";
 
+type Params = Promise<{ lang: string }>;
+
 const getTutorials = async (locale: string) => {
   try {
     const tutorials = await directus.request(
@@ -59,7 +61,7 @@ const getTutorials = async (locale: string) => {
   }
 };
 
-const TutorialsPage = async ({ params }: { params: { lang: string } }) => {
+const TutorialsPage = async ({ params }: { params: Params }) => {
   const { lang } = await params;
   const tutorials = await getTutorials(lang);
 

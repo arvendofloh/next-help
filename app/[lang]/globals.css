@@ -109,3 +109,21 @@ li ,p {
   position: absolute;
   width: 30px;
 }
+
+.tutorialcard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  background-size: cover;
+  transform-origin: center;
+  transition: transform .4s ease-in-out;
+}
+
+.tutorialcard:focus::after,
+.tutorialcard:hover::after {
+      transform: scale(1.03);
+}

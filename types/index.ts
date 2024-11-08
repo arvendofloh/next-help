@@ -1,3 +1,13 @@
+interface DirectusBase {
+  id: string;
+  date_created: string;
+  date_updated?: string;
+  user_created: string;
+  user_updated?: string;
+  status?: string;
+  sort?: number;
+}
+
 export interface Meta {
   title: string;
   description: string;
@@ -9,11 +19,11 @@ export interface Category {
   faqs: FAQ[];
 }
 
-export interface FAQ {
-  id: string;
+export interface FAQ extends DirectusBase {
   title: string;
   answer: string;
   category: Category;
+  translations?: TutorialTranslation[];
 }
 
 export interface Translation {
@@ -40,14 +50,7 @@ export interface TutorialTranslation extends Translation {
   tutorials_id: string;
 }
 
-export interface Tutorial {
-  id: string;
-  date_created: string;
-  date_updated?: string;
-  user_created: string;
-  user_updated?: string;
-  status: string;
-  sort?: number;
+export interface Tutorial extends DirectusBase {
   title: string;
   image: string;
   imagelink: string;

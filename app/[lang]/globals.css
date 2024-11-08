@@ -19,7 +19,6 @@ body {
 h1 {
   font-size: 30px;
   line-height: 38px;
-  margin: .67em 0
 }
 
 h1,h2 {
@@ -32,53 +31,28 @@ h1,h2 {
 h2 {
   font-size: 26px;
   line-height: 32px;
-  margin: .75em 0
 }
 
 h3 {
   font-size: 23px;
   font-weight: 300;
   line-height: 30px;
-  margin: .83em 0
-}
-
-h3,h4 {
-  align-items: center;
-  color: #fff;
-  letter-spacing: 0
 }
 
 h4 {
   font-size: 19px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 25px;
-  margin: 1.12em 0
 }
 
 h5 {
   font-size: 17px;
   line-height: 24px;
-  margin: 1.5em 0
-}
-
-h5,h6 {
-  align-items: center;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0
 }
 
 h6 {
   font-size: 14px;
   line-height: 20px;
-  margin: 1.67em 0
-}
-
-p {
-  margin: 4px 0 16px
-}
-li > p {
-  margin: 4px 0 8px
 }
 
 li ,p {
@@ -126,4 +100,12 @@ li ,p {
 .tutorialcard:focus::after,
 .tutorialcard:hover::after {
       transform: scale(1.03);
+}
+
+.faq-item a { 
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  transition: border-bottom  ease-in-out 200ms;
+}
+.faq-item a:hover {
+  border-bottom: 2px solid rgba(255,255,255,1);
 }

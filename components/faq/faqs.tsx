@@ -19,12 +19,10 @@ const Faqs = ({ categories }: FaqProps) => {
   const [filteredCategories, setFilteredCategories] = useState(categories);
 
   useEffect(() => {
-    console.log(activeCategory);
     setFilteredCategories(filterCategories(activeCategory, categories));
   }, [categories, activeCategory]);
 
   const toggleActiveCategory = (category: string) => {
-    console.log("toggleActiveCategory", category);
     if (category !== "" && category === activeCategory) {
       setActiveCategory("");
     } else {

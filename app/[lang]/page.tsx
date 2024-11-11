@@ -1,7 +1,5 @@
-import ReleaseList from "@/components/release/release-list";
-
 const HomePage = async () => {
-  return <ReleaseList />;
+  return <></>;
 };
 
 export default HomePage;

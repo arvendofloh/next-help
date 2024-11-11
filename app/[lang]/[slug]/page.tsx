@@ -18,7 +18,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
   }
   return (
     <PaddingContainer>
-      <main className="h-auto space-y-5">
+      <main className="h-auto space-y-5 bg-slate-50 text-foreground px-10 pt-2 pb-8 page-style">
         <h1>{page[0].title}</h1>
         <div dangerouslySetInnerHTML={{ __html: page[0].content }}></div>
       </main>

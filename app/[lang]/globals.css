@@ -23,7 +23,6 @@ h1 {
 
 h1,h2 {
   align-items: center;
-  color: #fff;
   font-weight: 300;
   letter-spacing: 0
 }
@@ -56,13 +55,30 @@ h6 {
 }
 
 li ,p {
-  color: #fff;
   font-size: 17px;
   font-weight: 300;
   letter-spacing: 0;
   line-height: 24px
 }
 
+.page-style h1, 
+.page-style h2, 
+.page-style h3 {
+  margin: 1rem 0;
+}
+.page-style h4, 
+.page-style h5,
+.page-style h6 {
+  margin: .75rem 0;
+}
+
+.page-style p{
+  margin: 0.5rem 0;
+}
+.page-style ul {
+  margin: 0.5rem 0 .5rem 1.5rem;
+  list-style: disc;
+}
 .release ol,.release ul {
   line-height: 1.5;
   margin: 8px;
@@ -108,4 +124,26 @@ li ,p {
 }
 .faq-item a:hover {
   border-bottom: 2px solid rgba(255,255,255,1);
+}
+.main-nav a {
+  padding: 4px 12px;
+}
+.main-nav a::after {
+  content: "";
+    background: white;
+    mix-blend-mode: exclusion;
+    width: calc(100% + 10px);
+    height: 0px;
+    position: absolute;
+    bottom: -4px;
+    left: -5px;
+    transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 10px;
+}
+.main-nav a:hover::after {
+  height: calc(100% + 8px);
+}
+
+.main-nav a.active::after {
+  height: 1px;
 }

@@ -1,13 +1,18 @@
 import PaddingContainer from "@/components/layout/padding-container";
 import Release from "@/components/release/release";
-import { DUMMY_RELEASE_NOTES } from "../../DUMMY_DATA";
+import { ReleaseNote } from "@/types";
 
-const ReleaseList = async () => {
+interface ReleaseNoteProps {
+  releaseNotes: ReleaseNote[];
+  locale: string;
+}
+
+const ReleaseList = ({ releaseNotes, locale }: ReleaseNoteProps) => {
   return (
     <PaddingContainer>
       <main className="h-auto space-y-5">
-        {DUMMY_RELEASE_NOTES.map((release, i) => (
-          <Release release={release} key={i} />
+        {releaseNotes.map((release: ReleaseNote, i: number) => (
+          <Release release={release as ReleaseNote} key={i} locale={locale} />
         ))}
       </main>
     </PaddingContainer>

@@ -1,6 +1,9 @@
 {
   "navigation": {
     "links": {
+      "tutorials": "Tutorials",
+      "releasenotes": "What's new",
+      "faq": "FAQ",
       "contact": "Contact support"
     }
   }

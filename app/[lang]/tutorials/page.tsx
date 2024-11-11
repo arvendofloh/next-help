@@ -25,7 +25,7 @@ const getTutorials = async (locale: string) => {
       return tutorials;
     } else {
       const localizedTutorials = tutorials.map((category) => {
-        if (!category.translations) {
+        if (!category.translations || category.translations.length === 0) {
           return category;
         } else {
           const categoryTranslations = category.translations.find(

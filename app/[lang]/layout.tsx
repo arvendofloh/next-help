@@ -25,9 +25,11 @@ const RootLayout = async ({
   params: Params;
 }) => {
   const { lang } = await params;
+
   return (
     <html lang={lang}>
       <body className={roboto.className}>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <Navigation locale={lang} />
         <div className="pt-10">{children}</div>
       </body>

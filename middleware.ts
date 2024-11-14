@@ -1,6 +1,5 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { i18n } from "./i18n.config";
@@ -25,6 +24,7 @@ const middleware = (request: NextRequest) => {
   const pathname = request.nextUrl.pathname;
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-next-pathname", pathname);
+  console.log("SET PATHNAME", pathname);
 
   // Check if there is ansy supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -38,9 +38,9 @@ const middleware = (request: NextRequest) => {
     return NextResponse.redirect(
       new URL(`/${locale}/${pathname}`, request.url)
     );
-  } else {
-    return NextResponse.next({ request: { headers: requestHeaders } });
   }
+
+  return NextResponse.next({ request: { headers: requestHeaders } });
 };
 
 export default middleware;

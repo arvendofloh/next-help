@@ -58,9 +58,15 @@ export interface Tutorial extends DirectusBase {
   translations?: TutorialTranslation[];
 }
 
+export interface ReleaseNoteTranslation extends Translation {
+  content: string;
+  tutorials_id: string;
+}
+
 export interface ReleaseNote {
   releasedate: string;
   title: string;
   content: string;
   status: "draft" | "published";
+  translations?: ReleaseNoteTranslation[];
 }

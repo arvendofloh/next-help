@@ -14,8 +14,6 @@ const getReleaseVersion = async (version: string, locale: string) => {
       })
     )) as ReleaseNote[];
 
-    console.log(releasenote);
-
     if (locale === "en") {
       return releasenote[0];
     } else {

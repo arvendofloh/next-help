@@ -70,3 +70,17 @@ export interface ReleaseNote {
   status: "draft" | "published";
   translations?: ReleaseNoteTranslation[];
 }
+
+export interface PageTranslation extends Translation {
+  slug: string;
+  title: string;
+  content: string;
+  pages_id: string;
+}
+
+export interface Page extends DirectusBase {
+  slug: string;
+  title: string;
+  content: string;
+  translations?: PageTranslation[];
+}

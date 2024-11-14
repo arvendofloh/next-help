@@ -147,3 +147,24 @@ li ,p {
 .main-nav a.active::after {
   height: 1px;
 }
+
+table th {
+  white-space: nowrap;
+}
+table td, table th {
+  padding: 12px 15px;
+}
+
+table tr:last-of-type {
+  border-bottom: 2px solid rgb(54,79,115);
+}
+table thead tr {
+  color: rgb(54,79, 115);
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(54, 79, 115, 0.8);
+}
+
+.page-style {}

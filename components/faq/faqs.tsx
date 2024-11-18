@@ -32,7 +32,7 @@ const Faqs = ({ categories, tocHeader }: FaqProps) => {
   };
 
   return (
-    <div className="flex mt-8 xl:mt-16 lg:-mx-12 gap-4">
+    <div className="flex mt-8 xl:mt-16 gap-4">
       <aside className="md:w-1/3 lg:w-1/4 md:block">
         <div className="sticky top-12 flex flex-col gap-2 p-2">
           <h3 className="text-white">{tocHeader}</h3>

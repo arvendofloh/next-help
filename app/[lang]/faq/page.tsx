@@ -61,14 +61,21 @@ const FaqPage = async ({ params }: { params: Params }) => {
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
   const categories = await getFaqs(lang);
+  let sortedCategories: Category[] = [];
+
+  if (categories !== undefined) {
+    sortedCategories = (categories as Category[]).sort(
+      (a: Category, b: Category) => {
+        return a.title.localeCompare(b.title);
+      }
+    );
+  }
+  console.log(categories);
 
   return (
     <PaddingContainer>
       <main className="space-y-5">
-        <Faqs
-          categories={categories as Category[]}
-          tocHeader={dictionary.labels.toc}
-        />
+        <Faqs categories={sortedCategories} tocHeader={dictionary.labels.toc} />
       </main>
     </PaddingContainer>
   );

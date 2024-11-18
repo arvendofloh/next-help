@@ -19,11 +19,17 @@ export interface Category {
   faqs: FAQ[];
 }
 
+export interface FAQTranslation extends Translation {
+  answer: string;
+  title: string;
+  faq_id: string;
+}
+
 export interface FAQ extends DirectusBase {
   title: string;
   answer: string;
   category: Category;
-  translations?: TutorialTranslation[];
+  translations?: FAQTranslation[];
 }
 
 export interface Translation {

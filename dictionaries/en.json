@@ -6,5 +6,8 @@
       "faq": "FAQ",
       "contact": "Contact support"
     }
+  },
+  "labels": {
+    "toc": "Table of content"
   }
 }

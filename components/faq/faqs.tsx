@@ -6,6 +6,7 @@ import classNames from "classnames";
 
 interface FaqProps {
   categories: Category[];
+  tocHeader: string;
 }
 
 const filterCategories = (value: string, categories: Category[]) => {
@@ -14,7 +15,7 @@ const filterCategories = (value: string, categories: Category[]) => {
   });
 };
 
-const Faqs = ({ categories }: FaqProps) => {
+const Faqs = ({ categories, tocHeader }: FaqProps) => {
   const [activeCategory, setActiveCategory] = useState("");
   const [filteredCategories, setFilteredCategories] = useState(categories);
 
@@ -26,7 +27,6 @@ const Faqs = ({ categories }: FaqProps) => {
     if (category !== "" && category === activeCategory) {
       setActiveCategory("");
     } else {
-      console.log("setActiveCategory", category);
       setActiveCategory(category);
     }
   };
@@ -35,7 +35,7 @@ const Faqs = ({ categories }: FaqProps) => {
     <div className="flex mt-8 xl:mt-16 lg:-mx-12 gap-4">
       <aside className="md:w-1/3 lg:w-1/4 md:block">
         <div className="sticky top-12 flex flex-col gap-2 p-2">
-          <h3 className="text-white">Table of Content</h3>
+          <h3 className="text-white">{tocHeader}</h3>
           <div className="space-y-2 mt-2">
             {categories &&
               categories.map((category) => (

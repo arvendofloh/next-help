@@ -3,6 +3,7 @@ import { readItems } from "@directus/sdk";
 import PaddingContainer from "@/components/layout/padding-container";
 import { Category, FAQ } from "@/types";
 import Faqs from "@/components/faq/faqs";
+import { getDictionary } from "@/lib/getDictionary";
 
 type Params = Promise<{ lang: string }>;
 
@@ -38,7 +39,7 @@ const getFaqs = async (locale: string) => {
               return {
                 ...faq,
                 title: faqTranslations?.title || faq.title,
-                answer: faqTranslations?.link || faq.answer,
+                answer: faqTranslations?.answer || faq.answer,
               };
             }
           });
@@ -58,12 +59,16 @@ const getFaqs = async (locale: string) => {
 
 const FaqPage = async ({ params }: { params: Params }) => {
   const { lang } = await params;
+  const dictionary = await getDictionary(lang);
   const categories = await getFaqs(lang);
 
   return (
     <PaddingContainer>
       <main className="space-y-5">
-        <Faqs categories={categories as Category[]} />
+        <Faqs
+          categories={categories as Category[]}
+          tocHeader={dictionary.labels.toc}
+        />
       </main>
     </PaddingContainer>
   );

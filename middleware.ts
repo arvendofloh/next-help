@@ -22,9 +22,6 @@ const getLocale = (request: NextRequest): string | undefined => {
 /* MIDDLEWARE */
 const middleware = (request: NextRequest) => {
   const pathname = request.nextUrl.pathname;
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-next-pathname", pathname);
-  console.log("SET PATHNAME", pathname);
 
   // Check if there is ansy supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -39,8 +36,6 @@ const middleware = (request: NextRequest) => {
       new URL(`/${locale}/${pathname}`, request.url)
     );
   }
-
-  return NextResponse.next({ request: { headers: requestHeaders } });
 };
 
 export default middleware;

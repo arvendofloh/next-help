@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { headers } from "next/headers";
 import PaddingContainer from "../layout/padding-container";
 import { getDictionary } from "@/lib/getDictionary";
-import classNames from "classnames";
+import NavLink from "./navLink";
 
 const Navigation = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
-  const headersList = await headers();
-  const pathname = headersList.get("x-next-pathname");
 
   return (
     <PaddingContainer>
@@ -21,34 +18,19 @@ const Navigation = async ({ locale }: { locale: string }) => {
         <nav className="main-nav">
           <ul className="flex items-center gap-4">
             <li>
-              <Link
-                href={`/${locale}/tutorials`}
-                className={classNames("relative", {
-                  active: pathname === `/${locale}/tutorials`,
-                })}
-              >
+              <NavLink href={`/${locale}/tutorials`}>
                 {dictionary.navigation.links.tutorials}
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
-                href={`/${locale}/release-notes`}
-                className={classNames("relative", {
-                  active: pathname === `/${locale}/release-notes`,
-                })}
-              >
+              <NavLink href={`/${locale}/release-notes`}>
                 {dictionary.navigation.links.releasenotes}
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
-                href={`/${locale}/faq`}
-                className={classNames("relative", {
-                  active: pathname === `/${locale}/faq`,
-                })}
-              >
+              <NavLink href={`/${locale}/faq`}>
                 {dictionary.navigation.links.faq}
-              </Link>
+              </NavLink>
             </li>
             <li>
               <Link

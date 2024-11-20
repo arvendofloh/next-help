@@ -70,7 +70,6 @@ const FaqPage = async ({ params }: { params: Params }) => {
       }
     );
   }
-  console.log(categories);
 
   return (
     <PaddingContainer>

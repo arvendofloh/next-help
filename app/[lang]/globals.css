@@ -85,6 +85,15 @@ p {
   margin: 0.5rem 0 0.5rem 1.5rem;
   list-style: disc;
 }
+
+.release h3 {
+  margin: .83em 0;
+}
+
+.release p {
+  margin: 4px 0 16px;
+}
+
 .release ol,
 .release ul {
   line-height: 1.5;
@@ -94,6 +103,9 @@ p {
 
 .release li {
   list-style: disc;
+}
+.release li li {
+  list-style: circle;
 }
 
 .release h2:after {
@@ -125,16 +137,22 @@ p {
   transform: scale(1.03);
 }
 
+.home a,
 .faq-item a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   transition: border-bottom ease-in-out 200ms;
 }
+.home a:hover,
 .faq-item a:hover {
   border-bottom: 2px solid rgba(255, 255, 255, 1);
 }
 .main-nav a {
   padding: 4px 12px;
 }
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
 .main-nav a::after {
   content: "";
   background: white;
@@ -155,6 +173,7 @@ p {
   height: 1px;
 }
 
+table {overflow-x: auto;}
 table th {
   white-space: nowrap;
 }

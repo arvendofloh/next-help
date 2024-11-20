@@ -33,8 +33,8 @@ const Faqs = ({ categories, tocHeader }: FaqProps) => {
 
   return (
     <div className="flex mt-8 xl:mt-16 gap-4">
-      <aside className="md:w-1/3 lg:w-1/4 md:block">
-        <div className="sticky top-12 flex flex-col gap-2 p-2">
+      <aside className="hidden md:w-1/3 lg:w-1/4 md:block">
+        <div className="sticky top-12 flex flex-col gap-4 p-2">
           <h3 className="text-white">{tocHeader}</h3>
           <div className="space-y-2 mt-2">
             {categories &&
@@ -78,7 +78,7 @@ const Faqs = ({ categories, tocHeader }: FaqProps) => {
       <div className="md:w-2/3 lg:w-3/4 w-full min-h-screen">
         {filteredCategories &&
           filteredCategories.map((category) => (
-            <div key={category.id} className="flex flex-col gap-2 p-2 mb-14">
+            <div key={category.id} className="flex flex-col gap-4 p-2 mb-14">
               <h3>{category.title}</h3>
               <div className="space-y-4 mt-4">
                 {category.faqs.map((faq: FAQ, i: number) => (

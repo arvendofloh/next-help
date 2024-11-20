@@ -9,5 +9,11 @@
   },
   "labels": {
     "toc": "Table of content"
+  },
+  "homepage": {
+    "titleHtml": "Welcome to <b>imc Express</b> helpcenter",
+    "subtitle": "eLearning creation has never been easier",
+    "videoUrl": "https://imc-blish-design-assets.s3.eu-central-1.amazonaws.com/mmm-video/video_en.mp4",
+    "viewAllTutorials": "Click here to see all tutorials"
   }
 }

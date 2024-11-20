@@ -61,9 +61,8 @@ const FaqItem = ({ faq }: FaqItemProps) => {
             style={{ height: "auto" }}
             ref={contentContainer}
           >
-            <span className="border border-secondary"></span>
             <div
-              className="max-w-3xl px-4 text-gray-300"
+              className="max-w-3xl px-2 text-gray-300"
               dangerouslySetInnerHTML={{ __html: faq.answer }}
             ></div>
           </div>

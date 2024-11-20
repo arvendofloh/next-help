@@ -72,7 +72,7 @@ const TutorialsPage = async ({ params }: { params: Params }) => {
           tutorials.map((category) => (
             <div key={category.id}>
               <h3 className="mb-4">{category.title}</h3>
-              <div className="cardscontainer mb-12 w-full grid grid-cols-6 gap-3">
+              <div className="cardscontainer mb-12 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                 {category.tutorials.map((tutorial: Tutorial) => (
                   <TutorialCard key={tutorial.id} tutorial={tutorial} />
                 ))}

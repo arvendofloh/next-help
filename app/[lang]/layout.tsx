@@ -31,7 +31,7 @@ const RootLayout = async ({
       <body className={roboto.className}>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <Navigation locale={lang} />
-        <div className="pt-10">{children}</div>
+        <div className="pt-5 md:pt-10">{children}</div>
       </body>
     </html>
   );

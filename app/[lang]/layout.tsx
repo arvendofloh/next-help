@@ -1,17 +1,12 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
+import { getMeta } from "@/lib/api";
 import Navigation from "@/components/navigation/navigation";
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700"],
   subsets: ["latin"],
 });
-
-const getMeta = async () => {
-  return directus.request(readItems("meta"));
-};
 
 export const metadata = await getMeta();
 

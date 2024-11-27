@@ -22,6 +22,9 @@ const HomePage = async ({ params }: { params: Params }) => {
         <video
           className="h-full w-full rounded-lg md:max-w-lg lg:max-w-3xl md:my-8"
           controls
+          muted
+          autoPlay
+          loop
         >
           <source src={dictionary.homepage.videoUrl} type="video/mp4" />
           Your browser does not support the video tag.

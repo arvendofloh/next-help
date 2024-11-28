@@ -46,6 +46,11 @@ export const getPages = async (locale: string) => {
     const pages = await directus.request(
       readItems("pages", {
         fields: ["*", "translations.*"],
+        filter: {
+          hideFromAI: {
+            _neq: true,
+          },
+        },
       })
     );
 

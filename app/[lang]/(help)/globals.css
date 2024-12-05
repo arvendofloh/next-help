@@ -87,7 +87,7 @@ p {
 }
 
 .release h3 {
-  margin: .83em 0;
+  margin: 0.83em 0;
 }
 
 .release p {
@@ -173,7 +173,9 @@ p {
   height: 1px;
 }
 
-table {overflow-x: auto;}
+table {
+  overflow-x: auto;
+}
 table th {
   white-space: nowrap;
 }
@@ -192,4 +194,23 @@ table thead tr {
 
 tbody tr {
   border-bottom: 1px solid rgba(54, 79, 115, 0.8);
+}
+
+@media print {
+  .cover {
+    break-after: always;
+    page-break-after: always;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 20mm 30mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
 }

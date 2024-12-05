@@ -9,7 +9,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
 
   return (
     <PaddingContainer>
-      <nav className="py-6 flex items-center justify-between flex-wrap">
+      <nav className="py-6 flex items-center justify-between flex-wrap print:hidden print:py-0">
         <Link href="/">
           <div
             className="bg-logo-white bg-no-repeat bg-contain"

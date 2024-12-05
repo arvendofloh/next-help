@@ -23,10 +23,10 @@ const RootLayout = async ({
 
   return (
     <html lang={lang}>
-      <body className={roboto.className}>
+      <body className={`${roboto.className} print:bg-white`}>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <Navigation locale={lang} />
-        <div className="pt-5 md:pt-10">{children}</div>
+        <div className="pt-5 md:pt-10 print:pt-0">{children}</div>
       </body>
     </html>
   );

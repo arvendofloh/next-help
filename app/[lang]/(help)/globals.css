@@ -197,9 +197,17 @@ tbody tr {
 }
 
 @media print {
+  body {
+    background: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+  }
   .cover {
+    background: white;
     break-after: always;
     page-break-after: always;
+    margin: 0mm 0mm !important;
   }
 
   a[href]:after {
@@ -207,10 +215,21 @@ tbody tr {
   }
 
   @page {
+    background: white;
     size: A4 portrait;
     margin: 20mm 30mm;
     @bottom-right {
       content: counter(page);
+      font-weight: bold;
+    }
+  }
+
+  /* prettier-ignore */
+  @page:first{
+    background: white;
+    margin: 0mm 0mm;
+    @bottom-right {
+      content: "";
     }
   }
 }

@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         foreground: "#364f73",
         secondary: "#e9393e",
+        orange: "#DE3B48",
       },
     },
   },

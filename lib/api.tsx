@@ -1,9 +1,18 @@
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
-import { ReleaseNote, FAQ, Tutorial, Page } from "@/types";
+import { Meta, ReleaseNote, FAQ, Tutorial, Page } from "@/types";
 
 export const getMeta = async () => {
-  return directus.request(readItems("meta"));
+  try {
+    const meta = (await directus.request(
+      readItems("meta", { fields: ["title, description"], limit: 1 })
+    )) as Meta[];
+    return meta;
+  } catch (error) {
+    console.error(error);
+  }
+
+  return undefined;
 };
 
 export const getPage = async (slug: string, locale: string) => {

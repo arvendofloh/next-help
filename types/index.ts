@@ -10,7 +10,7 @@ interface DirectusBase {
 
 export interface Meta {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export interface Category {
@@ -85,6 +85,9 @@ export interface PageTranslation extends Translation {
 }
 
 export interface Page extends DirectusBase {
+  hideFromAI: boolean;
+  showInMenu: boolean;
+  isPrint: boolean;
   slug: string;
   title: string;
   content: string;

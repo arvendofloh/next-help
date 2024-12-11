@@ -8,7 +8,8 @@
     }
   },
   "labels": {
-    "toc": "Inhaltsverzeichnis"
+    "toc": "Inhaltsverzeichnis",
+    "lastUpdated": "Zuletzt aktualisiert am "
   },
   "homepage": {
     "titleHtml": "Willkommen bei <b>imc Express</b> helpcenter",

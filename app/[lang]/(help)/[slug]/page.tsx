@@ -44,7 +44,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
     return (
       <PageContainer>
         <div className="flex justify-center print:hidden">
-          <PrintButton />
+          <PrintButton>{dictionary.labels.printPage}</PrintButton>
         </div>
         <div className="text-black h-screen relative cover print:block print:text-black bg-white ">
           <div className="bg-orange absolute left-1/4 top-44 right-0 bottom-1/3">

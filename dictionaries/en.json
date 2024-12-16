@@ -9,7 +9,8 @@
   },
   "labels": {
     "toc": "Table of content",
-    "lastUpdated": "Last updated on "
+    "lastUpdated": "Last updated on ",
+    "printPage": "Print this page"
   },
   "homepage": {
     "titleHtml": "Welcome to <b>imc Express</b> helpcenter",

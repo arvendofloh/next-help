@@ -1,10 +1,11 @@
 "use client";
+import { ReactNode } from "react";
 
-const PrintButton = () => {
+const PrintButton = ({ children }: { children: ReactNode }) => {
   return (
     <button
       onClick={() => window.print()}
-      className="flex justify-center gap-2 items-center mx-auto my-4 text-white bg-secondary border-0 p-2 pl-4 pr-6 px-8 focus:outline-none rounded text-lg"
+      className="flex justify-center gap-2 items-center mx-auto my-4 text-white bg-secondary/90 border-0 p-2 pl-4 pr-6 px-8 rounded-lg ease-in-out duration-300 text-sm hover:bg-secondary/100 focus:outline-none"
     >
       <svg
         className="flex-shrink-0 w-6 h-6 text-secondary"
@@ -31,7 +32,7 @@ const PrintButton = () => {
           ></path>{" "}
         </g>
       </svg>
-      Print
+      {children}
     </button>
   );
 };

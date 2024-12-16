@@ -18,6 +18,7 @@ body {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.5em;
+  padding-bottom: 50px;
 }
 
 h1 {
@@ -194,6 +195,17 @@ table thead tr {
 
 tbody tr {
   border-bottom: 1px solid rgba(54, 79, 115, 0.8);
+}
+
+.cover {
+  background: white;
+  break-after: always;
+  page-break-after: always;
+  margin: 0mm 0mm !important;
+}
+.cover .lastUpdated {
+  bottom: -30px;
+  left: 0;
 }
 
 @media print {

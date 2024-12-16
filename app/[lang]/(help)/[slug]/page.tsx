@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import { getPage } from "@/lib/api";
 import { getDictionary } from "@/lib/getDictionary";
 import { notFound } from "next/navigation";
+import PageContainer from "@/components/layout/page-container";
 import PaddingContainer from "@/components/layout/padding-container";
+import PrintButton from "@/components/layout/print-btn";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
@@ -39,11 +41,12 @@ const DynamicPage = async ({ params }: { params: Params }) => {
       ? new Date(page.date_updated)
       : new Date();
 
-    console.log(updated);
-
     return (
-      <PaddingContainer>
-        <div className="hidden h-screen relative cover print:block print:text-black print:bg-white ">
+      <PageContainer>
+        <div className="flex justify-center print:hidden">
+          <PrintButton />
+        </div>
+        <div className="text-black h-screen relative cover print:block print:text-black bg-white ">
           <div className="bg-orange absolute left-1/4 top-44 right-0 bottom-1/3">
             <div className="absolute lastUpdated">
               {dictionary.labels.lastUpdated +
@@ -54,14 +57,14 @@ const DynamicPage = async ({ params }: { params: Params }) => {
             {page.title}
           </h1>
         </div>
-        <main className="h-auto space-y-5 bg-slate-50 text-foreground px-16 pt-5 pb-8 page-style print:bg-white print:p-0 print:text-black">
+        <main className="h-auto space-y-5  text-foreground px-16 pt-5 pb-8 page-style bg-white print:p-0 print:text-black">
           <h1>{page.title}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: page.content }}
             className="overflow-x-auto"
           ></div>
         </main>
-      </PaddingContainer>
+      </PageContainer>
     );
   }
 

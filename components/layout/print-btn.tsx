@@ -12,14 +12,14 @@ const PrintButton = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         stroke="#000000"
-        stroke-width="0.00004000000000000003"
+        strokeWidth="0.00004000000000000003"
       >
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           stroke="#CCCCCC"
-          stroke-width="0.4640000000000001"
+          strokeWidth="0.4640000000000001"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}

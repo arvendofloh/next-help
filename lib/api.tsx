@@ -56,9 +56,14 @@ export const getPages = async (locale: string) => {
       readItems("pages", {
         fields: ["*", "translations.*"],
         filter: {
-          hideFromAI: {
-            _neq: true,
-          },
+          _and: [
+            {
+              hideFromAI: {
+                _neq: true,
+              },
+              status: { _eq: "published" },
+            },
+          ],
         },
       })
     );
@@ -143,7 +148,9 @@ export const getReleaseVersion = async (version: string, locale: string) => {
   try {
     const releasenote = (await directus.request(
       readItems("releasenotes", {
-        filter: { title: { _eq: version } },
+        filter: {
+          _and: [{ title: { _eq: version }, status: { _eq: "published" } }],
+        },
         fields: ["*", "translations.*"],
         limit: 1,
       })
@@ -179,6 +186,7 @@ export const getReleaseNotes = async (locale: string) => {
   try {
     const releasenotes = await directus.request(
       readItems("releasenotes", {
+        filter: { status: { _eq: "published" } },
         fields: ["*", "translations.*"],
         sort: "-releasedate",
       })
@@ -218,6 +226,7 @@ export const getTutorials = async (locale: string) => {
           "tutorials.translations.*",
           "translations.*",
         ],
+        filter: { status: { _eq: "published" } },
         sort: "sort",
         sortOrder: "ASC",
       })

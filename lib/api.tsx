@@ -226,7 +226,6 @@ export const getTutorials = async (locale: string) => {
           "tutorials.translations.*",
           "translations.*",
         ],
-        filter: { status: { _eq: "published" } },
         sort: "sort",
         sortOrder: "ASC",
       })

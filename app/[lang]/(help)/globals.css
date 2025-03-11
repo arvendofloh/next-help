@@ -147,6 +147,21 @@ p {
 .faq-item a:hover {
   border-bottom: 2px solid rgba(255, 255, 255, 1);
 }
+
+.faq-item p {
+  margin-bottom: 10px;
+}
+
+.faq-item ul {
+  margin: 0 0 10px 15px;
+  list-style: disc;
+}
+
+.faq-item ol {
+  margin: 0 0 10px 15px;
+  list-style: decimal;
+}
+
 .main-nav a {
   padding: 4px 12px;
 }

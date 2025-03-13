@@ -87,6 +87,11 @@ p {
   list-style: disc;
 }
 
+.page-style ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+  list-style: decimal;
+}
+
 .release h3 {
   margin: 0.83em 0;
 }

@@ -13,7 +13,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
         <Link href="/">
           <div
             className="bg-logo-white bg-no-repeat bg-contain"
-            style={{ width: 92 + "px", height: 40 + "px" }}
+            style={{ width: 228 + "px", height: 28 + "px" }}
           ></div>
         </Link>
         <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">

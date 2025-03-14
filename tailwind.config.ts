@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "logo-white":
-          "url('https://imcgmbh.s3.eu-central-1.amazonaws.com/logo-imc-standard-white.svg')",
+          "url('https://imcgmbh.s3.eu-central-1.amazonaws.com/logo_scheer-imc_V01_white.svg')",
       },
       colors: {
         foreground: "#364f73",

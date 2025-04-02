@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { createSlug } from "@/lib/utils";
 import { FAQ } from "@/types";
 
 interface FaqItemProps {
@@ -17,10 +18,18 @@ const FaqItem = ({ faq }: FaqItemProps) => {
     if (contentContainer.current && contentContainer.current.offsetHeight) {
       setContentHeight(contentContainer.current.offsetHeight);
     }
-  }, []);
+
+    if (typeof window !== "undefined") {
+      // Access the anchor using window.location.hash
+      const anchor = window.location.hash;
+      if (anchor === `#${createSlug(faq.title)}`) {
+        toggleOpen();
+      }
+    }
+  }, [faq.title]);
 
   return (
-    <div key={faq.id} className="faq-item">
+    <div key={faq.id} className="faq-item" id={createSlug(faq.title)}>
       <div onClick={toggleOpen}>
         <button className="flex items-center focus:outline-none">
           <svg

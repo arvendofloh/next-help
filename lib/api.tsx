@@ -99,7 +99,7 @@ export const getFaqs = async (locale: string) => {
     const categories = await directus.request(
       readItems("category", {
         fields: ["*", "faqs.*", "faqs.translations.*", "translations.*"],
-        sort: "sort",
+        sort: "sort, faqs.sort",
         sortOrder: "ASC",
       })
     );

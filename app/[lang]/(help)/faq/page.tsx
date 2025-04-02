@@ -10,6 +10,7 @@ const FaqPage = async ({ params }: { params: Params }) => {
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
   const categories = await getFaqs(lang);
+
   let sortedCategories: Category[] = [];
 
   if (categories !== undefined) {

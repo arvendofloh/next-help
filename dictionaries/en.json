@@ -17,5 +17,8 @@
     "subtitle": "eLearning creation has never been easier",
     "videoUrl": "https://imc-blish-design-assets.s3.eu-central-1.amazonaws.com/mmm-video/video_en.mp4",
     "viewAllTutorials": "Click here to see all tutorials"
+  },
+  "general": {
+    "source": "Source: "
   }
 }

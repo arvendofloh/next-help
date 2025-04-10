@@ -36,7 +36,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
   const html = renderToString(
     <>
       <h1 className="mb-4">{dictionary.navigation.links.releasenotes}</h1>
-      {releaseNotes.map((release: ReleaseNote, i: number) => {
+      {releaseNotes.map((release: ReleaseNote) => {
         const link = `${baseUrl}/release/${release.title}`;
         return (
           <>

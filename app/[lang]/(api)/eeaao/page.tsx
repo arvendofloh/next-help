@@ -42,7 +42,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
           <>
             <Release
               release={release as ReleaseNote}
-              key={i}
+              key={release.id}
               locale={lang}
               noWhiteSpace={true}
             />

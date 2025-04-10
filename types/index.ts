@@ -70,6 +70,7 @@ export interface ReleaseNoteTranslation extends Translation {
 }
 
 export interface ReleaseNote {
+  id: string;
   releasedate: string;
   title: string;
   content: string;

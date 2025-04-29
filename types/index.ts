@@ -54,6 +54,7 @@ export interface TutorialTranslation extends Translation {
   link: string;
   title: string;
   tutorials_id: string;
+  description?: string;
 }
 
 export interface Tutorial extends DirectusBase {
@@ -61,6 +62,7 @@ export interface Tutorial extends DirectusBase {
   image: string;
   imagelink: string;
   link: string;
+  description?: string;
   translations?: TutorialTranslation[];
 }
 

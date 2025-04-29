@@ -254,6 +254,8 @@ export const getTutorials = async (locale: string) => {
                 ...tutorial,
                 title: tutorialTranslations?.title || tutorial.title,
                 link: tutorialTranslations?.link || tutorial.link,
+                description:
+                  tutorialTranslations?.description || tutorial.description,
               };
             }
           });

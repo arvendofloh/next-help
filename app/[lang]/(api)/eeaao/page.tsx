@@ -1,9 +1,16 @@
 import { headers } from "next/headers";
-import { getReleaseNotes, getFaqs, getPages } from "@/lib/api";
+import { getReleaseNotes, getFaqs, getPages, getTutorials } from "@/lib/api";
 import { getDictionary } from "@/lib/getDictionary";
 import { createSlug } from "@/lib/utils";
 import Release from "@/components/release/release";
-import { ReleaseNote, FAQ, Category, Page } from "@/types";
+import {
+  ReleaseNote,
+  FAQ,
+  Category,
+  Page,
+  TutorialCategory,
+  Tutorial,
+} from "@/types";
 import TurndownService from "turndown";
 
 type Params = Promise<{ lang: string }>;
@@ -15,6 +22,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
   const releaseNotes = (await getReleaseNotes(lang)) as ReleaseNote[];
   const categories = (await getFaqs(lang)) as Category[];
   const pages = (await getPages(lang)) as Page[];
+  const tutorialCategories = (await getTutorials(lang)) as TutorialCategory[];
   const turndownService = new TurndownService({
     headingStyle: "setext",
     hr: "* * *",
@@ -35,6 +43,24 @@ const DynamicPage = async ({ params }: { params: Params }) => {
 
   const html = renderToString(
     <>
+      <h1 className="mb-4">{dictionary.navigation.links.tutorials}</h1>
+      {tutorialCategories.map((category: TutorialCategory) => {
+        return (
+          <div key={`tutorial-category-${category.id}`} className="my-6">
+            {category.tutorials.map((tutorial: Tutorial) => {
+              return (
+                <div key={`tutorial-${tutorial.id}`}>
+                  <h3>{tutorial.title}</h3>
+                  <p>{tutorial.description}</p>
+                  <br />
+                  {dictionary.general.source}
+                  <a href={tutorial.link}>{tutorial.link}</a>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
       <h1 className="mb-4">{dictionary.navigation.links.releasenotes}</h1>
       {releaseNotes.map((release: ReleaseNote) => {
         const link = `${baseUrl}/release/${release.title}`;
@@ -56,7 +82,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
       {categories &&
         categories.map((category: Category) => {
           return (
-            <div key={category.id} className="my-6">
+            <div key={`cat-${category.id}`} className="my-6">
               <h3>{category.title}</h3>
               <ul>
                 {category.faqs.map((faq: FAQ) => (
@@ -79,7 +105,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
         pages.map((page: Page) => {
           const link = `${baseUrl}/${page.slug}`;
           return (
-            <div key={page.id} className="my-6">
+            <div key={`page-${page.id}`} className="my-6">
               <h3>{page.title}</h3>
               <div dangerouslySetInnerHTML={{ __html: page.content }}></div>
               <div>

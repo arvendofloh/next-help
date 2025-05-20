@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
 import { getPage } from "@/lib/api";
 import { getDictionary } from "@/lib/getDictionary";
@@ -46,14 +47,18 @@ const DynamicPage = async ({ params }: { params: Params }) => {
         <div className="flex justify-center print:hidden">
           <PrintButton>{dictionary.labels.printPage}</PrintButton>
         </div>
-        <div className="text-black h-screen relative cover print:block print:text-black bg-white ">
-          <div className="bg-orange absolute left-1/4 top-44 right-0 bottom-1/3">
+        <div className="text-black cover print:block print:text-black bg-white ">
+          <div className="mt-20 relative">
+            <img
+              src="https://imcgmbh.s3.eu-central-1.amazonaws.com/scheer-document-title-image.jpg"
+              alt={page.title}
+            />
             <div className="absolute lastUpdated">
               {dictionary.labels.lastUpdated +
                 updated.toLocaleDateString("de-DE")}
             </div>
           </div>
-          <h1 className="document-title w-9/12 leading-relaxed text-6xl left-20 font-bold absolute top-1/4">
+          <h1 className="document-title leading-relaxed text-6xl font-bold ">
             {page.title}
           </h1>
         </div>

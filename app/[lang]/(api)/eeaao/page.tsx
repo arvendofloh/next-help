@@ -39,8 +39,6 @@ const DynamicPage = async ({ params }: { params: Params }) => {
     br: "\n\n",
   });
 
-  console.log(releaseNotes);
-
   const headersList = await headers();
   const host = headersList.get("X-Forwarded-Host");
   const proto = headersList.get("X-Forwarded-Proto");

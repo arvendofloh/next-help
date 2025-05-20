@@ -230,6 +230,7 @@ tbody tr {
 
 .cover .document-title {
   margin: 1em 0px 0 145px;
+  overflow-wrap: break-word;
 }
 
 @media print {
@@ -255,6 +256,7 @@ tbody tr {
 
   .cover .document-title {
     margin: 1em 25mm 0 25mm;
+    overflow-wrap: break-word;
   }
 
   a[href]:after {

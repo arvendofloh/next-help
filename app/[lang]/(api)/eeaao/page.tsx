@@ -19,7 +19,10 @@ const DynamicPage = async ({ params }: { params: Params }) => {
   const { renderToString } = await import("react-dom/server");
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
-  const releaseNotes = (await getReleaseNotes(lang)) as ReleaseNote[];
+  const releaseNotes = (await getReleaseNotes(lang))?.slice(
+    0,
+    3
+  ) as ReleaseNote[];
   const categories = (await getFaqs(lang)) as Category[];
   const pages = (await getPages(lang)) as Page[];
   const tutorialCategories = (await getTutorials(lang)) as TutorialCategory[];
@@ -35,6 +38,8 @@ const DynamicPage = async ({ params }: { params: Params }) => {
     linkReferenceStyle: "full",
     br: "\n\n",
   });
+
+  console.log(releaseNotes);
 
   const headersList = await headers();
   const host = headersList.get("X-Forwarded-Host");

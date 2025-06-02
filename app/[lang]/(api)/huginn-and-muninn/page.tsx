@@ -33,11 +33,9 @@ const DynamicPage = async ({ params }: { params: Params }) => {
 
   const html = renderToString(
     <>
-      {/* <h1 className="mb-4">{dictionary.navigation.links.internal}</h1> */}
       {internals &&
         internals.map((internal: Internal) => {
           const editLink = `https://help-admin.imc-express.cloud/admin/content/internals/${internal.id}`;
-          console.log(internal);
           return (
             <div key={`internal-${internal.id}`} className="my-6">
               <div dangerouslySetInnerHTML={{ __html: internal.text }}></div>
@@ -51,6 +49,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
       {pages &&
         pages.map((page: Page) => {
           const link = `${baseUrl}/${page.slug}`;
+          const editLink = `https://help-admin.imc-express.cloud/admin/content/pages/${page.id}`;
           return (
             <div key={`page-${page.id}`} className="my-6">
               <h3>{page.title}</h3>
@@ -58,6 +57,10 @@ const DynamicPage = async ({ params }: { params: Params }) => {
               <div>
                 {dictionary.general.source}
                 <a href={link}>{link}</a>
+              </div>
+              <div>
+                {dictionary.general.edit}
+                <a href={editLink}>{editLink}</a>
               </div>
             </div>
           );

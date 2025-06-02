@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import { getInternals, getPages } from "@/lib/api";
 import { getDictionary } from "@/lib/getDictionary";
 import { Internal, Page } from "@/types";
@@ -26,11 +25,6 @@ const DynamicPage = async ({ params }: { params: Params }) => {
     br: "\n\n",
   });
 
-  const headersList = await headers();
-  const host = headersList.get("X-Forwarded-Host");
-  const proto = headersList.get("X-Forwarded-Proto");
-  const baseUrl = `${proto}://${host}/${lang}`;
-
   const html = renderToString(
     <>
       {internals &&
@@ -40,7 +34,7 @@ const DynamicPage = async ({ params }: { params: Params }) => {
             <div key={`internal-${internal.id}`} className="my-6">
               <div dangerouslySetInnerHTML={{ __html: internal.text }}></div>
               <div>
-                {dictionary.general.edit}
+                {dictionary.general.source}
                 <a href={editLink}>{editLink}</a>
               </div>
             </div>
@@ -48,7 +42,6 @@ const DynamicPage = async ({ params }: { params: Params }) => {
         })}
       {pages &&
         pages.map((page: Page) => {
-          const link = `${baseUrl}/${page.slug}`;
           const editLink = `https://help-admin.imc-express.cloud/admin/content/pages/${page.id}`;
           return (
             <div key={`page-${page.id}`} className="my-6">
@@ -56,10 +49,6 @@ const DynamicPage = async ({ params }: { params: Params }) => {
               <div dangerouslySetInnerHTML={{ __html: page.content }}></div>
               <div>
                 {dictionary.general.source}
-                <a href={link}>{link}</a>
-              </div>
-              <div>
-                {dictionary.general.edit}
                 <a href={editLink}>{editLink}</a>
               </div>
             </div>

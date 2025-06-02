@@ -19,6 +19,7 @@
     "viewAllTutorials": "Click here to see all tutorials"
   },
   "general": {
-    "source": "Source: "
+    "source": "Source: ",
+    "edit": "Edit: "
   }
 }

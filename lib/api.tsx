@@ -50,23 +50,42 @@ export const getPage = async (slug: string, locale: string) => {
   return undefined;
 };
 
-export const getPages = async (locale: string) => {
+export const getPages = async (locale: string, forInternalAItoo = false) => {
   try {
-    const pages = await directus.request(
-      readItems("pages", {
-        fields: ["*", "translations.*"],
-        filter: {
-          _and: [
-            {
-              hideFromAI: {
-                _neq: true,
+    let pages;
+    if (forInternalAItoo) {
+      pages = await directus.request(
+        readItems("pages", {
+          fields: ["*", "translations.*"],
+          filter: {
+            _and: [
+              {
+                forInternalAI: {
+                  _eq: true,
+                },
+                status: { _eq: "published" },
               },
-              status: { _eq: "published" },
-            },
-          ],
-        },
-      })
-    );
+            ],
+          },
+        })
+      );
+    } else {
+      pages = await directus.request(
+        readItems("pages", {
+          fields: ["*", "translations.*"],
+          filter: {
+            _and: [
+              {
+                hideFromAI: {
+                  _neq: true,
+                },
+                status: { _eq: "published" },
+              },
+            ],
+          },
+        })
+      );
+    }
 
     if (locale === "en") {
       return pages;
@@ -271,4 +290,18 @@ export const getTutorials = async (locale: string) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const getInternals = async () => {
+  try {
+    return await directus.request(
+      readItems("internals", {
+        fields: ["*", "translations.*"],
+        filter: { status: { _eq: "published" } },
+      })
+    );
+  } catch (error) {
+    console.error(error);
+  }
+  return undefined;
 };

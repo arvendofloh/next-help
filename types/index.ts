@@ -89,10 +89,15 @@ export interface PageTranslation extends Translation {
 
 export interface Page extends DirectusBase {
   hideFromAI: boolean;
+  forInteralAI: boolean;
   showInMenu: boolean;
   isPrint: boolean;
   slug: string;
   title: string;
   content: string;
   translations?: PageTranslation[];
+}
+
+export interface Internal extends DirectusBase {
+  text: string;
 }

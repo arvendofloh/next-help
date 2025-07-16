@@ -257,6 +257,7 @@ tbody tr {
   .cover .document-title {
     margin: 1em 25mm 0 25mm;
     overflow-wrap: break-word;
+    font-size: 3.15em;
   }
 
   a[href]:after {

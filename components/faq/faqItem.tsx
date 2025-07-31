@@ -12,7 +12,12 @@ const FaqItem = ({ faq }: FaqItemProps) => {
   const contentContainer = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
 
-  const toggleOpen = () => setOpen((cur) => !cur);
+  const toggleOpen = () => {
+    if (contentContainer.current && contentContainer.current.offsetHeight) {
+      setContentHeight(contentContainer.current.offsetHeight);
+    }
+    setOpen((cur) => !cur);
+  };
 
   useEffect(() => {
     if (contentContainer.current && contentContainer.current.offsetHeight) {

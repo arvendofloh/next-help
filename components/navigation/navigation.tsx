@@ -50,7 +50,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               </NavLink>
             </li>
             <li className="my-4 md:my-0">
-              <MailLink mailto="mailto:express-support@im-c.com">
+              <MailLink mailto="mailto:express-support@scheer-imc.com">
                 {dictionary.navigation.links.contact}
               </MailLink>
             </li>
